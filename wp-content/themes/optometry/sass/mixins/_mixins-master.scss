@@ -1,0 +1,33 @@
+@mixin aspect-ratio($ratio-or-width, $height: null) {
+	$padding: if($height,
+					percentage($height/$ratio-or-width),
+					percentage(1/$ratio-or-width)
+	);
+	&:before { content:''; float: left; padding-bottom: $padding;  }
+	&:after  { content:''; display: table; clear: both;  }
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}

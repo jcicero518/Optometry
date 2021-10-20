@@ -1,0 +1,25 @@
+{
+  "entry": {
+    "main": [
+      "./assets/scripts/app.js",
+      "./assets/sass/style.scss"
+    ]
+  },
+  "publicPath": "/",
+  "devUrl": "http://suny-optometry.lndo.site:8080",
+  "reloadDelay": 0,
+  "proxyUrl": "http://localhost:3000",
+  "cacheBusting": "[name]_[hash:8]",
+  "watch": [
+    "**/*.php",
+    "**/*.html",
+    "**/*.css",
+    "**/*.{png,jpg,gif}"
+  ],
+  "files": [
+    "**/*.php"
+  ],
+  "ui": {
+    "port": 3002
+  }
+}

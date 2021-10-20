@@ -1,0 +1,5 @@
+name: suny-optometry
+recipe: wordpress
+config:
+  webroot: .
+  php: '7.1'

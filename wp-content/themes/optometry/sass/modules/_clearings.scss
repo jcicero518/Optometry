@@ -1,0 +1,76 @@
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	@include clearfix;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	@include clearfix-after;
+}
+
+$columns: (
+	gutters: 1/1
+);
+
+.column_split_half {
+	@include with-layout($columns) {
+		@include span(6 of 12);
+		&:last-of-type {
+			@include last;
+		}
+	}
+}
+
+.column_split_container {
+
+	p {
+		margin-top: 0;
+		line-height: 1.1;
+	}
+}
+
+#graph2 {
+	width: 480px;
+	height: 480px;
+}
+
+.o-divider {
+	margin: 20px auto;
+	width: 100%;
+	height: 1px;
+	background-color: #aeaeac;
+	clear: both;
+}
+
+.u-cf {
+	&:after {
+		content: "";
+		display: table;
+		table-layout: fixed;
+		clear: both;
+	}
+}
+
+.cf {
+	width: 100%;
+	float: left;
+	clear: both;
+
+	&:after {
+		@include clearfix-after;
+	}
+}

@@ -1,0 +1,219 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	&.widget_text {
+
+	}
+
+	&.address_widget {
+
+		&:before {
+			position: absolute;
+			width: 21px;
+			height: 31px;
+			top: 20px;
+			background: transparent url(../../assets/images/map-icon.png) no-repeat 0 0;
+			display: inline-block;
+			content: " ";
+
+			@include susy-breakpoint(240px 599px) {
+				top: 45px;
+			}
+		}
+
+		p {
+			&:first-child {
+				margin: 0;
+			}
+		}
+
+		.widget-title {
+			margin-left: 2.2em;
+		}
+
+		.textwidget {
+			margin-left: 2.2em;
+		}
+
+		img.alignleft {
+			margin-right: 0.6em;
+			margin-bottom: 1.5em;
+		}
+	}
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+
+	blockquote {
+		color: $color__h4;
+		font-size: ems(18px);
+		font-family: $font__main;
+		font-weight: bold;
+		font-style: oblique;
+	}
+
+	&.l-community {
+
+		@include nested(5) {
+			@include span(5);
+
+		}
+
+		h3 {
+			margin: 0;
+			color: $color__community-text;
+			font-family: $font__main;
+			font-size: ems(20px);
+			font-weight: bold;
+			text-transform: none;
+		}
+
+		p {
+			margin-top: 0;
+			margin-bottom: 1.25em;
+			font-size: ems(16.67px);
+			color: $color__community-text;
+		}
+
+		.l-community-top {
+			@include nested(5) {
+				@include span(5);
+				display: flex;
+				flex-direction: row;
+				flex: 1 0;
+
+				@include susy-breakpoint(240px 480px) {
+					flex-direction: column;
+					align-items: center;
+				}
+
+				@at-root .templates--page--community & {
+					@include susy-breakpoint(240px 480px) {
+						flex-direction: column;
+						align-items: center;
+					}
+					@include susy-breakpoint(768px 1000px) {
+						flex-direction: column;
+						align-items: center;
+					}
+				}
+			}
+
+			.o-community-copy {
+				@include span(3 of 5);
+				margin-right: 0;
+				flex-grow: 1;
+
+				@include susy-breakpoint(240px 480px) {
+					margin-top: .5em;
+					text-align: center;
+				}
+
+				@at-root .templates--page--community & {
+					@include susy-breakpoint(240px 480px) {
+						margin-top: .5em;
+						text-align: center;
+					}
+					@include susy-breakpoint(768px 1000px) {
+						margin-top: .5em;
+						text-align: center;
+					}
+				}
+			}
+
+			.o-community-image {
+				//@include span(2 of 5);
+				float: left;
+				position: relative;
+				width: auto;
+
+				img {
+					@include susy-breakpoint(240px 480px) {
+						margin-right: 0;
+					}
+
+					@at-root .templates--page--community & {
+						@include susy-breakpoint(240px 480px) {
+							margin-right: 0;
+						}
+						@include susy-breakpoint(768px 1000px) {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+
+		.l-community-quote {
+			@include span(5 of 5);
+
+			blockquote {
+				margin: 0;
+				padding: 5px 0;
+
+				&:before {
+					content: "\201c";
+					font-style: normal;
+				}
+
+				&:after {
+					content: "\201d";
+					font-style: normal;
+				}
+			}
+		}
+	}
+
+	&.l-in-community {
+		@include nested(5) {
+			@include span(5);
+			@include clearfix;
+		}
+
+		h2 {
+			margin-top: 0;
+			margin-bottom: 0.25em;
+		}
+
+		.o-section-image {
+			@include susy-breakpoint(600px 767px) {
+				float: left;
+				position: relative;
+				width: auto;
+			}
+
+			img {
+				@include susy-breakpoint(600px 767px) {
+					margin-right: 0.6em;
+					margin-bottom: 1.5em;
+				}
+			}
+		}
+
+		.o-section-caption {
+			margin-top: 0.25em;
+			font-size: ems(14px);
+			color: $color__text-main;
+		}
+
+		&.l-feature-block {
+
+			.o-section-image {
+				float: left;
+				position: relative;
+				width: auto;
+
+				@include susy-breakpoint(240px 600px) {
+					float: none;
+					width: 100%;
+				}
+				img {
+					@include susy-breakpoint(240px 600px) {
+						float: none;
+					}
+				}
+			}
+		}
+	}
+}

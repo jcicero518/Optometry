@@ -1,0 +1,11 @@
+h1, h2 {
+    color: #aa3d50;
+}
+
+p {
+    margin: 0.75em 0;
+}
+
+h4 + p {
+    margin-top: 0;
+}

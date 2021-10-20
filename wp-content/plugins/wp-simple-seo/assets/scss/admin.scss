@@ -1,0 +1,227 @@
+/**
+* Welcome Screen
+* - Force our error messages to display
+*/
+#wpbody-content {
+	.about-wrap {
+		.notice,
+		div.error {
+			display: block !important;
+		}
+	}
+}
+
+/**
+* Bulk Actions
+*/
+#wp-simple-seo-bulk-actions {
+	display: none;
+	clear: both;
+	float: left;
+	width: 100%;
+	margin: 10px 0;
+	padding: 10px;
+	background-color: #f9f9f9;
+	box-sizing: border-box;
+
+	header {
+		h2 {
+			float: left;
+			margin: 0;
+			padding: 0;
+		}
+
+		.cancel {
+			float: right;
+		}
+	}
+
+	.progress {
+		clear: both;
+
+		.progress-number {
+			clear: both;
+			margin: 0 0 10px 0;
+
+			span.spinner {
+				float: left;
+				visibility: visible;
+				margin: 0 5px 0 0;
+			}
+		}
+
+		.progress-bar {
+			clear: both;
+		}
+
+	}
+
+
+	/**
+	* jQuery UI ProgressBar
+	*/
+	.ui-progressbar {
+		height: 2em;
+		text-align: left;
+		overflow: hidden;
+	}
+	.ui-progressbar .ui-progressbar-value {
+		margin: -1px;
+		height: 100%;
+	}
+	.ui-progressbar .ui-progressbar-overlay {
+		background: green;
+		height: 100%;
+		filter: alpha(opacity=25); /* support: IE8 */
+		opacity: 0.25;
+	}
+	.ui-progressbar-indeterminate .ui-progressbar-value {
+		background-image: none;
+	}
+	.ui-widget {
+		font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+		font-size: 1.1em;
+	}
+	.ui-widget .ui-widget {
+		font-size: 1em;
+	}
+	.ui-widget input,
+	.ui-widget select,
+	.ui-widget textarea,
+	.ui-widget button {
+		font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+		font-size: 1em;
+	}
+	.ui-widget-content {
+		border: 1px solid #dddddd;
+		background: #eeeeee;
+		color: #333333;
+	}
+	.ui-widget-content a {
+		color: #333333;
+	}
+	.ui-widget-header {
+		border: 1px solid #e78f08;
+		background: green;
+		color: #ffffff;
+		font-weight: bold;
+	}
+	.ui-widget-header a {
+		color: #ffffff;
+	}
+}
+
+/**
+* Post Meta Box
+*/
+#wp-simple-seo.postbox {
+	background: none;
+	border: none;
+
+	button.handlediv {
+		display: none;
+	}
+	h2.hndle {
+		display: none;
+	}
+	div.inside {
+		margin: 0;
+		padding: 0;
+
+		div.panel {
+			background: #fff;
+			border-left: 1px solid #e5e5e5;
+			border-right: 1px solid #e5e5e5;	
+			border-bottom: 1px solid #e5e5e5;	
+		}
+
+		/**
+		* Hide the Meta Editor
+		*/
+		div.meta-editor {
+			display: none;
+		}
+	}
+}
+
+/**
+* Term Meta Box
+*/
+tr.wp-simple-seo {
+	/**
+	* Hide the Meta Editor
+	*/
+	div.meta-editor {
+		display: none;
+	}
+}
+
+
+/**
+* Preview
+*/
+.wp-simple-seo-preview {
+	margin: 3px 0 10px 0;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid #eee;
+
+	.title {
+		margin: 0 0 5px 0;
+		font-family: Arial, sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 22px;
+		color: #1a0dab;
+	}
+	.url {
+		margin: 0 0 5px 0;
+		font-family: Arial, sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16px;
+		color: #006621;
+	}
+	.description {
+		font-family: Arial, sans-serif;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 18px;
+		color: #545454;
+	}
+	.count {
+		float: right;
+	}
+}
+
+/**
+* Styles
+* - Used across Plugin + Addons, not just preview
+*/
+#wp-simple-seo {
+	.count {
+		display: inline-block;
+		height: 22px;
+		line-height: 22px;
+		font-size: 12px;
+		padding: 0 3px;
+		border-radius: 3px;
+		color: #000;
+		background: #e5e5e5;
+
+		&.success {
+			background: green;
+			color: white;
+		}
+		&.alert {
+			background: red;
+			color: white;
+		}
+	}
+
+	.green {
+		color: green;
+	}
+	.red {
+		color: red;
+	}
+}

@@ -1,0 +1,46 @@
+$size__site-main: 100%;
+$size__site-masthead: 100%;
+$size__site-wrapper: 1030px;
+$size__site-wrapper-tablet: 768px;
+$size__site-gutter-tablet: 0;
+
+$size__site-sidebar: 25%;
+
+$size__site-gutter: 30px;
+$size__site-masthead-wrap-gutter: 30px;
+$size__site-section-wrap-gutter: 5px;
+
+$size__site-masthead-wrap-small-gutter: 5px;
+
+$size__site-main-menu: 745px;
+
+$size__header-vertical-gutter: 2.5rem;
+
+
+$grid__site-main: 100%;
+$grid__size-wrapper: 1040px;
+$grid__size-wrapper-ems: ems($grid__size-wrapper);
+
+$grid__breakpoints: (
+        main: 1040px,
+        tablet: 768px,
+        small: 600px,
+        mobile: 240px
+);
+
+$grid__gutters: (
+        main: 40px,
+        tablet: 25px,
+        small: 20px,
+        mobile: 20px
+);
+
+$grid__breakpoint-main: ems(map_get($grid__breakpoints, main));
+$grid__breakpoint-tablet: ems(map_get($grid__breakpoints, tablet));
+$grid__breakpoint-small: ems(map_get($grid__breakpoints, small));
+$grid__breakpoint-mobile: ems(map_get($grid__breakpoints, mobile));
+
+$grid__gutters-main: ems(map_get($grid__gutters, main));
+$grid__gutters-tablet: ems(map_get($grid__gutters, tablet));
+$grid__gutters-small: ems(map_get($grid__gutters, small));
+$grid__gutters-mobile: ems(map_get($grid__gutters, mobile));

@@ -1,0 +1,734 @@
+// susy global settings
+$susy: (
+        columns: 12,
+        container: $grid__size-wrapper-ems,
+        gutters: 28px/34px,
+        gutter-position: after,
+        use-custom: (rem: true),
+        container-position: center,
+        global-box-sizing: border-box,
+        debug: (image: hide)
+);
+
+$susy-small: (
+        columns: 12,
+        container: $size__site-wrapper,
+        gutters: 28px/34px,
+        gutter-position: after,
+        use-custom: (rem: true),
+        container-position: center,
+        global-box-sizing: border-box,
+        debug: (image: hide)
+);
+
+$susy-smallest: (
+        columns: 4,
+        container: $size__site-wrapper,
+        gutters: 0,
+        gutter-position: after,
+        use-custom: (rem: true),
+        container-position: center,
+        global-box-sizing: border-box,
+        debug: (image: hide)
+);
+
+$susy-tablet: (
+        columns: 12,
+        container: $size__site-wrapper-tablet,
+        gutters: 10px/10px,
+        gutter-position: after,
+        use-custom: (rem: true),
+        container-position: center,
+        global-box-sizing: border-box,
+        debug: (image: hide)
+);
+
+.wrap {
+  @include container;
+  //padding-left: $size__site-gutter;
+  //padding-right: $size__site-gutter;
+  //lost-center: $size__site-wrapper $size__site-gutter;
+
+  @at-root .site-header .wrap {
+    @include container;
+    padding-left: $size__site-masthead-wrap-gutter;
+    padding-right: $size__site-masthead-wrap-gutter;
+    lost-center: $size__site-wrapper $size__site-gutter;
+
+    @include susy-breakpoint(240px 599px) {
+      @include with-layout($susy-small) {
+        @include container;
+        padding-left: $size__site-masthead-wrap-small-gutter;
+        padding-right: $size__site-masthead-wrap-small-gutter;
+      }
+    }
+  }
+
+  @at-root .site-header .site-branding {
+    @include susy-breakpoint(240px 599px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  @at-root .section-row .wrap {
+
+    @include susy-breakpoint(240px) {
+      padding-left: $grid__gutters-mobile;
+      padding-right: $grid__gutters-mobile;
+    }
+
+    @include susy-breakpoint($grid__breakpoint-tablet $grid__breakpoint-main) {
+      padding-left: $grid__gutters-tablet;
+      padding-right: $grid__gutters-tablet;
+    }
+
+    @include susy-breakpoint(768px) {
+      padding-left: $grid__gutters-tablet;
+      padding-right: $grid__gutters-tablet;
+    }
+    //@debug $grid__gutters-tablet;
+    @include susy-breakpoint(65em) {
+        padding-left: $grid__gutters-main;
+        padding-right: $grid__gutters-main;
+    }
+  }
+
+  @at-root .page-template-default .content-area & {
+
+    @include susy-breakpoint(15em) {
+      padding-left: $grid__gutters-mobile;
+      padding-right: $grid__gutters-mobile;
+    }
+
+    @include susy-breakpoint(48em) {
+      padding-left: $grid__gutters-tablet;
+      padding-right: $grid__gutters-tablet;
+    }
+
+    @include susy-breakpoint(65em) {
+      padding-left: $grid__gutters-main;
+      padding-right: $grid__gutters-main;
+    }
+  }
+
+  @at-root .page-template-page--community .content-area & {
+
+    @include susy-breakpoint(15em) {
+      padding-left: $grid__gutters-mobile;
+      padding-right: $grid__gutters-mobile;
+    }
+
+    @include susy-breakpoint(48em) {
+      padding-left: $grid__gutters-tablet;
+      padding-right: $grid__gutters-tablet;
+    }
+
+    @include susy-breakpoint(65em) {
+      padding-left: $grid__gutters-main;
+      padding-right: $grid__gutters-main;
+    }
+  }
+
+  @at-root .templates--page--community .content-area & {
+
+    @include susy-breakpoint(15em) {
+      padding-left: $grid__gutters-mobile;
+      padding-right: $grid__gutters-mobile;
+    }
+
+    @include susy-breakpoint(48em) {
+      padding-left: $grid__gutters-tablet;
+      padding-right: $grid__gutters-tablet;
+    }
+
+    @include susy-breakpoint(65em) {
+      padding-left: $grid__gutters-main;
+      padding-right: $grid__gutters-main;
+    }
+  }
+
+  @at-root .search-results & {
+
+    @include susy-breakpoint(15em) {
+      padding-left: $grid__gutters-mobile;
+      padding-right: $grid__gutters-mobile;
+    }
+
+    @include susy-breakpoint(48em) {
+      padding-left: $grid__gutters-tablet;
+      padding-right: $grid__gutters-tablet;
+    }
+
+    @include susy-breakpoint(65em) {
+      padding-left: $grid__gutters-main;
+      padding-right: $grid__gutters-main;
+    }
+  }
+
+  @at-root & .site-main {
+
+    @include susy-breakpoint(15em) {
+      margin-top: ems(25px);
+      @include span(12);
+    }
+
+    @include susy-breakpoint(48em) {
+      margin-top: ems(40px);
+      @include span(9 last);
+    }
+
+    @include susy-breakpoint(65em) {
+      margin-top: ems(45px);
+      @include span(9 last);
+    }
+  }
+
+  @at-root .search-results & .site-main {
+    @include span(12);
+    max-width: 920px;
+  }
+
+  @at-root .page-template-page--community & .site-main {
+
+    @include susy-breakpoint(15em) {
+      margin-top: ems(25px);
+      @include span(12);
+    }
+
+    @include susy-breakpoint(48em) {
+      margin-top: ems(40px);
+      @include span(7);
+      position: relative;
+      /*background: transparent url(../../assets/images/bg/community-divider.jpg) no-repeat top right;*/
+      &:after {
+        position: absolute;
+        right: -4%;
+        top: 0;
+        display: block;
+        width: 1px;
+        height: 100%;
+        content: " ";
+        background: -moz-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* ff3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,65,117,0)), color-stop(50%, rgba(0,65,117,1)), color-stop(100%, rgba(0,65,117,0))); /* safari4+,chrome */
+        background: -webkit-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* safari5.1+,chrome10+ */
+        background: -o-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* opera 11.10+ */
+        background: -ms-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* ie10+ */
+        background: linear-gradient(0deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* w3c */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004175', endColorstr='#004175',GradientType=0 ); /* ie6-9 */
+      }
+    }
+
+    @include susy-breakpoint(65em) {
+      margin-top: ems(45px);
+      @include span(7);
+    }
+  }
+
+  @at-root .templates--page--community & .site-main {
+    @include susy-breakpoint(15em) {
+      margin-top: ems(25px);
+      @include span(12);
+    }
+
+    @include susy-breakpoint(48em) {
+      margin-top: ems(40px);
+      @include span(7);
+      position: relative;
+      /*background: transparent url(../../assets/images/bg/community-divider.jpg) no-repeat top right;*/
+      &:after {
+        position: absolute;
+        right: -4%;
+        top: 0;
+        display: block;
+        width: 1px;
+        height: 100%;
+        content: " ";
+        background: -moz-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* ff3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,65,117,0)), color-stop(50%, rgba(0,65,117,1)), color-stop(100%, rgba(0,65,117,0))); /* safari4+,chrome */
+        background: -webkit-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* safari5.1+,chrome10+ */
+        background: -o-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* opera 11.10+ */
+        background: -ms-linear-gradient(90deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* ie10+ */
+        background: linear-gradient(0deg, rgba(0,65,117,0) 0%, rgba(0,65,117,1) 50%, rgba(0,65,117,0) 100%); /* w3c */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004175', endColorstr='#004175',GradientType=0 ); /* ie6-9 */
+      }
+    }
+
+    @include susy-breakpoint(65em) {
+      margin-top: ems(45px);
+      @include span(7);
+    }
+  }
+
+  @at-root & .widget-area {
+
+    @include susy-breakpoint(15em) {
+      @include span(12);
+    }
+
+    @include susy-breakpoint(48em) {
+      margin-top: ems(47px);
+      @include span(3);
+    }
+
+    @include susy-breakpoint(65em) {
+      margin-top: ems(52px);
+      @include span(3);
+    }
+  }
+
+  @at-root .page-template-page--community & .widget-area {
+
+    @include susy-breakpoint(15em) {
+      @include span(12);
+    }
+
+    @include susy-breakpoint(48em) {
+      margin-top: ems(47px);
+      @include span(5 of 12 last);
+    }
+
+    @include susy-breakpoint(65em) {
+      margin-top: ems(52px);
+      @include span(5 of 12 last);
+    }
+  }
+
+  @at-root .templates--page--community & .widget-area {
+    @include susy-breakpoint(15em) {
+      @include span(12);
+    }
+
+    @include susy-breakpoint(48em) {
+      margin-top: ems(47px);
+      @include span(5 of 12 last);
+    }
+
+    @include susy-breakpoint(65em) {
+      margin-top: ems(52px);
+      @include span(5 of 12 last);
+    }
+  }
+
+
+  @at-root .site-footer .wrap {
+    //padding-left: $size__site-section-wrap-gutter;
+    //padding-right: $size__site-section-wrap-gutter;
+    //lost-center: $size__site-wrapper $size__site-section-wrap-gutter;
+
+    @include susy-breakpoint(240px) {
+      padding-left: $grid__gutters-mobile;
+      padding-right: $grid__gutters-mobile;
+    }
+
+    @include susy-breakpoint(768px) {
+      padding-left: $grid__gutters-tablet;
+      padding-right: $grid__gutters-tablet;
+    }
+
+    @include susy-breakpoint(65em) {
+      padding-left: $grid__gutters-main;
+      padding-right: $grid__gutters-main;
+    }
+
+  }
+}
+
+.site-branding {
+
+  @include susy-breakpoint(240px 767px) {
+    @include span(12);
+    margin-top: 10px;
+    float: none;
+    text-align: center;
+  }
+
+  @include susy-breakpoint(768px) {
+    //lost-column: 6/12;
+    @include span(8);
+  }
+
+  @include susy-breakpoint(600px 767px) {
+    margin-top: 10px;
+  }
+
+  .site-logo {
+
+    @include susy-breakpoint(240px 767px) {
+      float: none;
+    }
+  }
+
+  .site-title {
+
+    @include susy-breakpoint(240px 767px) {
+      margin: 0;
+      width: 100%;
+      float: none;
+    }
+
+    @include susy-breakpoint(768px) {
+      margin: 12px 0;
+    }
+  }
+}
+
+.site-search-form {
+
+  @include susy-breakpoint(600px) {
+    lost-column: 4/12 2;
+  }
+
+}
+
+.site-actions {
+
+  @include susy-breakpoint(240px 767px) {
+    @include span(12);
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  @include susy-breakpoint(768px) {
+    @include span(4 last);
+    margin-top: 1.75em;
+  }
+
+  .site-search-form {
+    margin-right: 0;
+
+    @include susy-breakpoint(240px 459px) {
+      @include with-layout($susy-smallest) {
+        @include span(3);
+      }
+    }
+
+    @include susy-breakpoint(460px 767px) {
+      @include span(10);
+      max-width: 250px;
+    }
+
+    @include susy-breakpoint(768px) {
+      width: 100%;
+    }
+
+  }
+
+  .mobile-button-container {
+
+    @include susy-breakpoint(240px 459px) {
+      @include with-layout($susy-smallest) {
+        @include span(1);
+
+      }
+    }
+
+    @include susy-breakpoint(460px 767px) {
+      display: block;
+      float: right;
+      width: 72px;
+    }
+
+    @include susy-breakpoint(768px) {
+      display: none;
+    }
+
+  }
+
+  .menu-toggle {
+
+    @include susy-breakpoint(240px 459px) {
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+      display: block;
+    }
+  }
+}
+
+.site-top-hero {
+  .caption {
+
+    @include susy-breakpoint(240px 599px) {
+      /*display: none;*/
+    }
+
+    @include susy-breakpoint(240px 599px) {
+      .caption-title {
+        @include span(12);
+      }
+      .caption-desc {
+        @include span(12);
+      }
+    }
+
+    @include susy-breakpoint(600px) {
+      .caption-title {
+        @include span(6);
+      }
+      .caption-desc {
+        @include span(6 last);
+      }
+    }
+
+    @include susy-breakpoint(481px 767px) {
+      padding: 15px 0;
+    }
+
+  }
+}
+
+.top-hero-image {
+
+  @include susy-breakpoint(240px 599px) {
+    position: relative;
+    width: 100%;
+  }
+
+  @include susy-breakpoint(600px) {
+    display: none;
+  }
+}
+
+.site-optometrist {
+
+  @include susy-breakpoint(240px 599px) {
+    background-position: 0 0;
+  }
+
+  @include susy-breakpoint(600px 1040px) {
+    background-position: 30% 0;
+  }
+
+  @include susy-breakpoint(768px) {
+    padding-bottom: 35px;
+  }
+
+  @include susy-breakpoint(1040px) {
+    background-position: 0 0;
+  }
+
+  .caption {
+
+    @include susy-breakpoint(240px 767px) {
+      padding: 15px 0;
+      @include span(12);
+    }
+
+    @include susy-breakpoint(768px) {
+      padding-top: 35px;
+      @include span(6 last);
+    }
+
+    .caption-title h2 {
+      line-height: 1.1;
+    }
+
+  }
+}
+
+.site-president {
+  @include span(12);
+
+  @include susy-breakpoint(240px 767px) {
+    //padding: 15px;
+  }
+
+  @include susy-breakpoint(768px) {
+    padding-bottom: 35px;
+  }
+
+  .caption-title {
+
+    @include susy-breakpoint(240px 767px) {
+      @include span(12);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    @include susy-breakpoint(768px) {
+      padding-top: 35px;
+      @include span(8);
+    }
+  }
+
+  .caption {
+
+    @include susy-breakpoint(240px 767px) {
+      @include span(12);
+      margin-top: 10px;
+    }
+
+    @include susy-breakpoint(768px) {
+      @include span(8);
+    }
+  }
+
+  .section-image {
+
+    @include susy-breakpoint(240px 767px) {
+      @include span(12);
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      float: none;
+    }
+
+    @include susy-breakpoint(768px) {
+      @include span(3 last);
+      padding-top: 25px;
+    }
+  }
+}
+
+
+
+.site-footer {
+
+  .footer-cols {
+
+    &:after {
+      display: block;
+      clear: both;
+      content: " ";
+    }
+  }
+
+  .footer-item {
+    content: " ";
+    min-height: 1px;
+    position: relative;
+    width: span(12);
+    overflow: hidden;
+
+    &:nth-of-type(1), &:nth-of-type(2) {
+      @include span(12);
+      float: none;
+
+      @include susy-breakpoint(481px 599px) {
+        @include gallery(6);
+      }
+
+      @include susy-breakpoint(37.5em) {
+        padding-right: gutter(12);
+        width: span(3.5);
+        float: left;
+        &:after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          right: -6%;
+          right: 8%;
+          display: block;
+          width: 1px;
+          min-height: 188px;
+          content: " ";
+          background: transparent url(../../assets/images/bg/footer-border.png) no-repeat right;
+          //background: transparent url(assets/images/bg/footer-border.png) no-repeat right;
+        }
+      }
+    }
+
+    &:last-of-type {
+
+      @include susy-breakpoint(240px 599px) {
+        @include span(12);
+        clear: both;
+
+        &:before {
+          margin: 1em auto;
+          display: block;
+          background: -moz-linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 100%); /* ff3.6+ */
+          background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,0.1)), color-stop(50%, rgba(255,255,255,0.6)), color-stop(100%, rgba(255,255,255,0.1))); /* safari4+,chrome */
+          background: -webkit-linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 100%); /* safari5.1+,chrome10+ */
+          background: -o-linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 100%); /* opera 11.10+ */
+          background: -ms-linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 100%); /* ie10+ */
+          background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 100%); /* w3c */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* ie6-9 */
+          width: 85%;
+          height: 1px;
+          content: " ";
+          position: relative;
+        }
+      }
+
+      @include susy-breakpoint(37.5em) {
+        @include span(5 wide last);
+      }
+    }
+
+    .site-info {
+      font-family: $font__menu;
+      font-weight: normal;
+      font-size: 12.5px;
+      line-height: 18.75px;
+      color: $color__footer-menu-link;
+      word-wrap: break-word;
+
+      @include susy-breakpoint(240px 480px) {
+        width: span(12);
+        float: none;
+      }
+
+      @include susy-breakpoint(481px 599px) {
+        @include gallery(6);
+      }
+
+      @include susy-breakpoint(600px) {
+        @include nested(5) {
+          width: span(5);
+        }
+      }
+
+      @include susy-breakpoint(768px) {
+        @include nested(5) {
+          width: span(5);
+        }
+      }
+
+      @include susy-breakpoint(1040px) {
+        @include nested(5) {
+          width: span(2.5 last);
+          float: right;
+        }
+      }
+    }
+
+    .address-info {
+      font-family: $font__menu;
+      font-weight: normal;
+      font-size: 12.5px;
+      line-height: 18.75px;
+      color: $color__footer-menu-link;
+      word-wrap: break-word;
+
+      @include susy-breakpoint(240px 480px) {
+        width: span(12);
+        float: none;
+      }
+
+      @include susy-breakpoint(481px 599px) {
+        @include gallery(6);
+      }
+
+      @include susy-breakpoint(600px) {
+        @include nested(5) {
+          width: span(5);
+        }
+      }
+
+      @include susy-breakpoint(768px) {
+        @include nested(5) {
+          width: span(5);
+        }
+      }
+
+      @include susy-breakpoint(1040px) {
+        @include nested(5) {
+          width: span(2.5 wide);
+          float: left;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+
+	img[class*="wp-image-"] {
+		@include center-block;
+	}
+
+	.wp-caption-text {
+		margin: 0.8075em 0;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.section-row {
+	position: relative;
+	width: 100%;
+
+	&.site-top-hero {
+
+		.caption {
+
+			.caption-desc {
+
+				p {
+
+					@include susy-breakpoint(240px 1039px) {
+						margin: 0;
+					}
+
+					@include susy-breakpoint(1040px) {
+						margin-top: 0.75em;
+						margin-bottom: 0.75em;
+					}
+
+					&:first-of-type {
+
+					}
+				}
+			}
+		}
+	}
+
+	.caption {
+
+		.caption-title {
+
+			h2 {
+				margin: 0;
+				font-family: $font--main;
+			}
+		}
+
+		.caption-desc {
+
+			p {
+				margin-top: 0.75em;
+				margin-bottom: 0.75em;
+
+				&:first-of-type {
+
+				}
+			}
+		}
+	}
+}
+
+.section-row-mobile {
+
+	@include susy-breakpoint(240px 599px) {
+		position: relative;
+		width: 100%;
+		background-image: none;
+		background-color: transparent;
+
+		&:before {
+			padding: 0;
+		}
+	}
+
+	@include susy-breakpoint(600px) {
+		display: none;
+	}
+}
+
+/*.section-inner-wrapper {
+	@include susy-breakpoint(240px 599px) {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background-image: url(../../assets/images/bg/optometrist.png);
+		background-repeat: no-repeat;
+	}
+}*/

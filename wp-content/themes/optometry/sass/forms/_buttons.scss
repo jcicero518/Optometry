@@ -1,0 +1,77 @@
+button, input {
+	transition: all 350ms ease-in-out;
+}
+
+button input[type="reset"],
+button input[type="submit"],
+button[type="submit"] {
+	border: none;
+	border-color: $color__border-button;
+	background: $color__background-button-submit;
+	color: rgba(0, 0, 0, .8);
+	@include font-size(0.75);
+	line-height: 1;
+	width: 28px;
+	height: 28px;
+	padding: .6em 1em .4em;
+	position: relative;
+	transition: all 350ms ease-in-out;
+
+	&:hover, &:focus {
+		/*border-color: $color__border-button-hover;*/
+		background-color: $color__background-button-submit-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__border-button-focus;
+	}
+}
+
+input[type="search"] {
+	-webkit-appearance: none;
+}
+
+button[type="submit"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 0;
+
+	.fa-search {
+		color: #fff;
+		font-size: 1.6em;
+		position: relative;
+		right: 6px;
+		bottom: 3px;
+	}
+}
+
+button[type="button"] {
+	border: none;
+	outline: none;
+
+	&.menu-toggle {
+
+		padding: 10px 16px;
+		width: 72px;
+		background: transparent;
+		position: relative;
+		bottom: -4px;
+
+		.icon-bar {
+			margin: 3px 0;
+			background-color: #fff;
+			display: block;
+			height: 4px;
+		}
+
+		&[aria-expanded="false"] {
+			background-color: $color__masthead;
+		}
+
+		&[aria-expanded="true"], &:hover, &:focus {
+			background-color: darken($color__masthead, 10%);
+		}
+	}
+}

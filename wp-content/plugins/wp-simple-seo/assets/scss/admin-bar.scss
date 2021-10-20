@@ -1,0 +1,36 @@
+#wpadminbar {
+	span.dashicons {
+		
+		&::before {
+			display: inline-block;
+			-webkit-font-smoothing: antialiased;
+			font: normal 20px/1 'dashicons';
+			height: 32px;
+			line-height: 32px;
+		}
+	}
+
+	.green {
+		a {
+			color: lightgreen !important;
+		}
+
+		span.dashicons {
+			&::before {
+				color: lightgreen !important;
+			}
+		}
+	}
+
+	.red {
+		a {
+			color: red !important;
+		}
+
+		span.dashicons {
+			&::before {
+				color: red !important;
+			}
+		}
+	}
+}
