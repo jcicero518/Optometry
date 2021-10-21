@@ -132,26 +132,14 @@ function optometry_widgets_init() {
 }
 add_action( 'widgets_init', 'optometry_widgets_init' );
 
-/*add_filter( 'excerpt_more', function( $more ) {
-	global $post;
-	$read_more_link = '';
-
-	$post_title = $post->post_title ?? '';
-	$permalink = get_permalink( $post->ID ) ?? NULL;
-	if ( $permalink ) {
-		$read_more_link .= '<a title="' . $post_title . '" href="' . $permalink . '">READ MORE</a>';
-	}
-	return ' .....' . $read_more_link;
-	//return $more;
-});*/
-
 require __DIR__ . '/vendor/autoload.php';
 
 \Amorphous\Optometry\Hooks\ThemeCleanup::getInstance();
 \Amorphous\Optometry\Hooks\PostFilters::getInstance();
 \Amorphous\Optometry\API\RestController::getInstance();
+
 add_filter( 'rest_cache_headers', [\Amorphous\Optometry\API\RestCache::class, 'setHeaders'] );
-//\Amorphous\Optometry\API\RestCache::getInstance();
+
 
 //add_action('save_post', 'change_default_slug');
 
@@ -172,56 +160,6 @@ add_filter( 'rest_cache_headers', [\Amorphous\Optometry\API\RestCache::class, 's
 
 
 
-function core_hooks() {
-	global $wp_filter;
-
-	//var_dump($wp_filter['save_post'] instanceof WP_Hook); // WP_Hook
-	//print '<pre>';print_r($wp_filter['wp_head']);print '</pre>';
-	print '<pre>';print_r($wp_filter['wp_enqueue_scripts']);print '</pre>';
-	//print '<pre>';print_r($wp_filter['save_post']);print '</pre>';
-	//add_action('edit_form_before_permalink')
-}
-//core_hooks();
-add_filter( 'wp_handle_upload_prefilter', function( $file ) {
-	//var_dump($file);
-	// in wp-admin/async-upload.php
-	$name = $file['name'];
-	$type = $file['type'];
-	//var_dump(file_is_valid_image($file['tmp_name']));exit;
-	//var_dump(file_exists( $file['tmp_name']));exit;
-	// $size
-	// $tmp_name
-
-	// Set correct file permissions.
-	/*$stat = stat( dirname( $file['tmp_name'] ));
-	$perms = $stat['mode'] & 0000777;
-	@ chmod( $file['tmp_name'], $perms );
-
-	$imageFactory = new \ImageOptimizer\OptimizerFactory([
-		'ignore_errors' => false,
-	]);
-
-	$optimizer = $imageFactory->get('jpg');
-	$optimizer->optimize( $file['tmp_name'] );*/
-	
-	return $file;
-
-});
-
-/*add_action( 'init', function() {
-	$imageFactory = new \ImageOptimizer\OptimizerFactory([
-		'ignore_errors' => false
-	]);
-	$optimizer = $imageFactory->get();
-
-	$image = wp_upload_dir()['baseurl'] . '/2018/04/affordability.jpg';
-	$optimizer->optimize( $image );
-
-});*/
-
-/*add_filter( 'pre_move_uploaded_file', function( $file, $new_file, $type ) {
-	var_dump(func_get_args());
-}, 10, 3);*/
 /**
  * Enqueue scripts and styles.
  */
@@ -275,9 +213,6 @@ function optometry_scripts() {
 		ob_end_clean();
 		return $output;
 	};
-	//$initialRender = new \Amorphous\Optometry\API\InitialRender();
-	//$sm = new SideMenus();
-	//$sideMenu = $sm->start()->parentPage($post->ID)->generateMenu();
 
 	$fm = new FooterMenus();
 	$footer_one_one = $fm->start()->parentPage(9)->generateMenu();
@@ -298,11 +233,6 @@ function optometry_scripts() {
 		'queriedObject' => get_queried_object(),
 		'endpoint' => get_template_directory_uri()
 	];
-
-	//$wpAdminBar = new WP_Admin_Bar();
-	//$nodes = $wpAdminBar->get_nodes();
-	//$nodes = WP_Admin_Bar::get_nodes();
-	//var_dump($nodes);
 
 	if ( is_page() || is_archive() || is_singular() ) {
 		$localizedSettings['type'] = get_post_type();
